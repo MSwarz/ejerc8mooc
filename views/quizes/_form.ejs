@@ -3,5 +3,20 @@
 <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>"/> <p>
 <label for="resp" class="rem">Respuesta:</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>"/> <p>
+<p>Temática:
+<select name="quiz[tema]">
+  <%
+  var arrTemas = [ 'otro', 'humanidades', 'ocio', 'ciencia', 'tecnologia' ];
+  var ind; for (ind=0; ind < arrTemas.length; ind++) {
+
+  var cStado = "";
+  if (arrTemas[ind] === quiz.tema) {
+    cStado = "selected";
+  }
+  %>
+ <option value="<%=arrTemas[ind]%>" <%=cStado%>><%=arrTemas[ind]%></option>
+  <% } %>
+</select>
+</p>
 <a href="/quizes"><button type="button">Cancelar</button></a>
 <input type="submit" value="Grabar">
